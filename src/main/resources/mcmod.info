@@ -1,0 +1,16 @@
+[
+{
+  "modid": "superhardmode",
+  "name": "Super Hard Mode",
+  "description": "It just gets harder and harder.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["MattDahEpic"],
+  "credits": "ExtraHardMode bukkit plugin for ideas",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
