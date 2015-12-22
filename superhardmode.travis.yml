@@ -1,0 +1,17 @@
+language: java
+install:
+  - gradle setupCIWorkspace --refresh-dependencies --info
+script:
+  - gradle build
+before_cache:
+  - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+cache:
+  directories:
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
+notifications:
+  email:
+    recipients:
+      - email
+    on_success: always
+    on_failure: always
