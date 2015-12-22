@@ -2,6 +2,7 @@ package com.mattdahepic.superhardmode.event;
 
 import com.mattdahepic.superhardmode.config.SHMConfig;
 
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.EnumFacing;
@@ -24,8 +25,12 @@ public class BreakEventHandler {
             if (SHMConfig.blocksThatSoften.contains(blockBroken)) {
                 for (EnumFacing side : EnumFacing.values()) {
                     BlockPos pos = e.pos.offset(side);
-                    //TODO: check for blocks to break
-                    //TODO: break blocks
+                    ItemStack blockToSoften = new ItemStack(e.world.getBlockState(pos).getBlock(),1,e.world.getBlockState(pos).getBlock().getMetaFromState(e.world.getBlockState(pos)));
+                    if (SHMConfig.blocksThatBeSoftened.contains(blockToSoften)) {
+                        //TODO: check for blocks to break
+                        IBlockState newState = ;//WAT DO?
+                        e.world.setBlockState(pos, newState);
+                    }
                 }
             }
         }
