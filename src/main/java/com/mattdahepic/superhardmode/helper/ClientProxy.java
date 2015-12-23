@@ -1,4 +1,4 @@
-package com.mattdahepic.superhardmode.proxy;
+package com.mattdahepic.superhardmode.helper;
 
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;

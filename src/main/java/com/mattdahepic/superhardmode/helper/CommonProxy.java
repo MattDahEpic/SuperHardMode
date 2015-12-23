@@ -1,4 +1,4 @@
-package com.mattdahepic.superhardmode.proxy;
+package com.mattdahepic.superhardmode.helper;
 
 import com.mattdahepic.superhardmode.event.BreakEventHandler;
 import com.mattdahepic.superhardmode.event.PlaceEventHandler;

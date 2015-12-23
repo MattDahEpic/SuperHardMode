@@ -14,7 +14,6 @@ import net.minecraft.server.MinecraftServer;
 import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class SHMConfig extends ConfigSyncable {
@@ -22,6 +21,7 @@ public class SHMConfig extends ConfigSyncable {
     public static final String CAT_TORCHES = "torches";
     public static final String CAT_SOUNDS = "sounds";
     public static final String CAT_WORLD = "world";
+    public static final String CAT_FIRE = "fire";
 
     @Config(CAT_BYPASS) @Comment({"Should Super Hard Mode player features be disabled for players in creative?"}) public static boolean bypassCreative = true;
     @Config(CAT_BYPASS) @Comment({"Should Super Hard Mode player features be disabled for operators?"}) public static boolean bypassOps = false;
@@ -33,8 +33,12 @@ public class SHMConfig extends ConfigSyncable {
     @Config(CAT_SOUNDS) @Comment({"Should a fizz sound be played when a torch's placement has been blocked or when a torch goes out in the rain?"}) public static boolean torchSounds = true;
 
     @Config(CAT_WORLD) @Comment({"Should blocks soften when ores ner them are removed?"}) public static boolean softenBlocksOnMine = true;
-    @Config(CAT_WORLD) @Comment({"A list of blocks that soften blocks around them when mined","Formatted as modid:block@meta"}) private static String[] oresThatSoften = new String[]{"minecraft:coal_ore@0","minecraft:iron_ore@0","minecraft:lapis_ore@0","minecraft:gold_ore@0","minecraft:redstone_ore@0","minecraft:diamond_ore@0"};
+    @Config(CAT_WORLD) @Comment({"A list of blocks that soften blocks around them when mined.","Formatted as modid:block@meta"}) private static String[] oresThatSoften = new String[]{"minecraft:coal_ore@0","minecraft:iron_ore@0","minecraft:lapis_ore@0","minecraft:gold_ore@0","minecraft:redstone_ore@0","minecraft:diamond_ore@0"};
     public static List<ItemStack> blocksThatSoften = new ArrayList<ItemStack>();
+    @Config(CAT_WORLD) @Comment({"A list of blocks that can be softened, as to not destroy player built structures.","Formatted as modid:block@meta"}) private static String[] oresThatBeSoftened = new String[]{"minecraft:stone@0","minecraft:stone@1","minecraft:stone@3","minecraft:stone@5","minecraft:dirt@0"};
+    public static List<ItemStack> blocksThatBeSoftened = new ArrayList<ItemStack>();
+
+    @Config(CAT_FIRE) @Comment({"What chance should breaking netherrack have of starting a fire?","Set to 0 to disable."}) @Range(min = 0,max = 100) public static int netherrackFireChance = 75;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance(String configName) {
@@ -55,6 +59,7 @@ public class SHMConfig extends ConfigSyncable {
         addSection(CAT_TORCHES);
         addSection(CAT_SOUNDS);
         addSection(CAT_WORLD);
+        addSection(CAT_FIRE);
         processor = new ConfigProcessor(getClass(), this.config, this.configFileName);
         processor.process(true);
     }

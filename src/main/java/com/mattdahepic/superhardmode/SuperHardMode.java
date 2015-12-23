@@ -2,7 +2,7 @@ package com.mattdahepic.superhardmode;
 
 import com.mattdahepic.mdecore.update.UpdateChecker;
 import com.mattdahepic.superhardmode.config.SHMConfig;
-import com.mattdahepic.superhardmode.proxy.CommonProxy;
+import com.mattdahepic.superhardmode.helper.CommonProxy;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -15,6 +15,8 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Random;
+
 @Mod(modid = SuperHardMode.MODID,name = SuperHardMode.NAME,version = SuperHardMode.VERSION,dependencies = SuperHardMode.DEPENDENCIES)
 public class SuperHardMode {
     @Mod.Instance(SuperHardMode.MODID)
@@ -25,10 +27,11 @@ public class SuperHardMode {
     public static final String VERSION = "@VERSION@";
     public static final String DEPENDENCIES = "required-after:mdecore@[1.8.8-1.6.1,);";
     public static final String UPDATE_URL = "https://raw.githubusercontent.com/MattDahEpic/Version/master/"+ MinecraftForge.MC_VERSION+"/"+MODID+".txt";
-    public static final String CLIENT_PROXY = "com.mattdahepic.superhardmode.proxy.ClientProxy";
-    public static final String COMMON_PROXY = "com.mattdahepic.superhardmode.proxy.CommonProxy";
+    public static final String CLIENT_PROXY = "com.mattdahepic.superhardmode.helper.ClientProxy";
+    public static final String COMMON_PROXY = "com.mattdahepic.superhardmode.helper.CommonProxy";
 
     public static final Logger logger = LogManager.getLogger(MODID);
+    public static final Random RNGesus = new Random();
 
     @SidedProxy(clientSide = CLIENT_PROXY, serverSide = COMMON_PROXY)
     public static CommonProxy proxy;
