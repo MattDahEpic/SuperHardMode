@@ -1,7 +1,7 @@
 package com.mattdahepic.superhardmode.event;
 
-import com.mattdahepic.superhardmode.block.Fire;
-import com.mattdahepic.superhardmode.block.Softening;
+import com.mattdahepic.superhardmode.worldfeatures.Fire;
+import com.mattdahepic.superhardmode.worldfeatures.Softening;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
@@ -15,6 +15,6 @@ public class BreakEventHandler {
     @SubscribeEvent
     public void breakEvent (BlockEvent.BreakEvent e) {
         Softening.handleSoftening(e);
-        Fire.handleNetherrackFire(e);
+        Fire.handleNetherrackBreakFire(e);
     }
 }

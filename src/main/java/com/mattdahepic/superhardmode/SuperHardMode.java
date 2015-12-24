@@ -1,7 +1,8 @@
 package com.mattdahepic.superhardmode;
 
 import com.mattdahepic.mdecore.update.UpdateChecker;
-import com.mattdahepic.superhardmode.config.SHMConfig;
+import com.mattdahepic.superhardmode.config.SHMConfigMain;
+import com.mattdahepic.superhardmode.config.SHMConfigWorld;
 import com.mattdahepic.superhardmode.helper.CommonProxy;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -33,14 +34,20 @@ public class SuperHardMode {
     public static final Logger logger = LogManager.getLogger(MODID);
     public static final Random RNGesus = new Random();
 
+    public static final String CONFIGNAME_MAIN = MODID;
+    public static final String CONFIGNAME_WORLD = MODID+"-world";
+    public static final String CONFIGNAME_MOBS = MODID+"-mobs";
+    public static final String CONFIGNAME_FARMING = MODID+"-farming";
+
     @SidedProxy(clientSide = CLIENT_PROXY, serverSide = COMMON_PROXY)
     public static CommonProxy proxy;
 
     @Mod.EventHandler
     public void preInit (FMLPreInitializationEvent e) {
         MinecraftForge.EVENT_BUS.register(instance);
-        SHMConfig.instance(MODID).initialize(e);
-        SHMConfig.finializeConfigValues();
+        SHMConfigMain.instance().initialize(e);
+        SHMConfigWorld.instance().initialize(e);
+        SHMConfigWorld.finializeConfigValues();
         proxy.registerEventHandlers();
     }
     @Mod.EventHandler

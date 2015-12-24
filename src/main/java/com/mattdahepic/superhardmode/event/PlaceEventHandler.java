@@ -1,6 +1,7 @@
 package com.mattdahepic.superhardmode.event;
 
-import com.mattdahepic.superhardmode.block.Torch;
+import com.mattdahepic.superhardmode.worldfeatures.LimitedBuilding;
+import com.mattdahepic.superhardmode.worldfeatures.Torch;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.world.BlockEvent;
@@ -13,6 +14,7 @@ public class PlaceEventHandler {
     }
     @SubscribeEvent
     public void placeEvent (BlockEvent.PlaceEvent e) {
-        Torch.handleTorch(e);
+        Torch.handleTorchPlacement(e);
+        LimitedBuilding.handleAntiNerdPole(e);
     }
 }

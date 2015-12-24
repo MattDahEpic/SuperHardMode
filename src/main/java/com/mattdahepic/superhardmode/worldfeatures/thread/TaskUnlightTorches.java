@@ -1,19 +1,15 @@
-package com.mattdahepic.superhardmode.thread;
+package com.mattdahepic.superhardmode.worldfeatures.thread;
 
-import com.mattdahepic.superhardmode.config.SHMConfig;
+import com.mattdahepic.superhardmode.config.SHMConfigWorld;
 
 import net.minecraft.block.*;
-import net.minecraft.block.material.Material;
-import net.minecraft.util.BlockPos;
 import net.minecraft.world.chunk.Chunk;
 
-import java.util.Random;
-
-public class TaskProcessWeatherChanges implements Runnable {
+public class TaskUnlightTorches implements Runnable {
     //The chunk to process weather changes in.
     private final Chunk chunk;
 
-    public TaskProcessWeatherChanges (Chunk chunk) {
+    public TaskUnlightTorches(Chunk chunk) {
         this.chunk = chunk;
     }
 
@@ -28,12 +24,8 @@ public class TaskProcessWeatherChanges implements Runnable {
                         if (block instanceof BlockAir) {
                             continue;
                         } else if (block instanceof BlockTorch) {
-                            if (SHMConfig.torchRainBreak) {
-                                if (new Random().nextInt(5) == 1) {
-                                    block.breakBlock(chunk.getWorld(),new BlockPos(x+16*chunk.xPosition,y,z+16*chunk.zPosition),chunk.getWorld().getBlockState(new BlockPos(x+16*chunk.xPosition,y,z+16*chunk.zPosition)));
-                                } else {
-                                    chunk.getWorld().setBlockToAir(new BlockPos(x+16*chunk.xPosition,y,z+16*chunk.zPosition));
-                                }
+                            if (SHMConfigWorld.torchRainBreak) {
+                                //TODO: set torch to unlit torch block
                                 chunk.setChunkModified();
                             }
                         } else if (block instanceof BlockCrops) {
