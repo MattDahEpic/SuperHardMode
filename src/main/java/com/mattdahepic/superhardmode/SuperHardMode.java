@@ -2,6 +2,7 @@ package com.mattdahepic.superhardmode;
 
 import com.mattdahepic.mdecore.update.UpdateChecker;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
+import com.mattdahepic.superhardmode.config.SHMConfigMob;
 import com.mattdahepic.superhardmode.config.SHMConfigWorld;
 import com.mattdahepic.superhardmode.helper.CommonProxy;
 
@@ -47,6 +48,7 @@ public class SuperHardMode {
         MinecraftForge.EVENT_BUS.register(instance);
         SHMConfigMain.instance().initialize(e);
         SHMConfigWorld.instance().initialize(e);
+        SHMConfigMob.instance().initialize(e);
         SHMConfigWorld.finializeConfigValues();
         proxy.registerEventHandlers();
     }
