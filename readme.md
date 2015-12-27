@@ -12,6 +12,7 @@ The following features are what exist when loading the mod with the default conf
 
 ##Features - Mobs
 * Zombies apply slowness to the player when they attack
+* Zombies can respawn after being killed
 
 ##Features - Farming
 * ???

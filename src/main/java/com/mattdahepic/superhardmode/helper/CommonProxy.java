@@ -8,5 +8,6 @@ public class CommonProxy {
         BreakEventHandler.init();
         PlayerInteractEventHandler.init();
         LivingAttackEventHandler.init();
+        LivingDeathEventHandler.init();
     }
 }
