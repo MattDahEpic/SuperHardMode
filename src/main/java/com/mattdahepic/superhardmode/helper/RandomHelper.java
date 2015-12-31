@@ -14,4 +14,7 @@ public class RandomHelper {
     public static boolean randomChance (int chance) {
         return rand.nextInt(100) < chance;
     }
+    public static float randomFloatInRange (float low, float high) {
+        return rand.nextFloat() * (high-low)+low;
+    }
 }

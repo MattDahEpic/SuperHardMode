@@ -9,11 +9,17 @@ import com.mattdahepic.superhardmode.SuperHardMode;
 
 public class SHMConfigMob extends ConfigSyncable {
     public static final String CAT_ZOMBIE = "zombie";
+    public static final String CAT_PLAYER = "player";
 
     @Config(CAT_ZOMBIE) @Comment({"Should zombies apply slowness to players when they attack and hit?"}) public static boolean zombieHitSlowness = true;
     @Config(CAT_ZOMBIE) @Comment({"Should multiple hits from zombie(s) stack the slowness effect?"}) public static boolean stackZombieHitSlowness = true;
     @Config(CAT_ZOMBIE) @Comment({"What should the maximum level of slowness be for players who are attacked by zombies?"}) @Range(min = 2,max = 127) public static int maxZombieHitSlownessStack = 12;
     @Config(CAT_ZOMBIE) @Comment({"Zombies place a block on death and with this chance, if the block is not broken the zombie respawns","Set to 0 to disable"}) @Range(min = 0,max = 100) public static int zombieRespawnChance = 75;
+
+    @Config(CAT_PLAYER) @Comment({"Lowest percent of hunger a player can respawn with, multiplicative.","Set to 0 to disable hunger reduction upon respawn.","Meant to prevent players killing themselves to restore hunger."}) @Range(min = 0f,max = 1f) public static float playerRespawnHungerLow = 0.5f;
+    @Config(CAT_PLAYER) @Comment({"Highest percent of hunger a player can respawn with, multiplicative."}) @Range(min = 0f,max = 1f) public static float playerRespawnHungerHigh = 0.75f;
+    @Config(CAT_PLAYER) @Comment({"Lowest percent of health a player can respawn with, multiplicative.","Set to 0 to disable health reducton upon respawn.","Meant to prevent players killing themselves to restore health."}) @Range(min = 0f,max = 1f) public static float playerRespawnHealthLow = 0.5f;
+    @Config(CAT_PLAYER) @Comment({"Highest percent of health a player can respawn with, multiplicative."}) @Range(min = 0f,max = 1f) public static float playerRespawnHealthHigh = 0.75f;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

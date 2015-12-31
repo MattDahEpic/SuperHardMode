@@ -37,12 +37,12 @@ public class Zombie {
         if (SHMConfigMob.zombieRespawnChance > 0 && !EntityHelper.hasFlagIgnored(e.entity)) {
             if (e.entity instanceof EntityZombie) {
                 EntityZombie zombie = (EntityZombie)e.entity;
-                int respawns = zombie.getEntityData().getInteger(EntityHelper.ZOMBIE_RESPAWN_TAG);
+                int respawns = zombie.getEntityData().getInteger(EntityHelper.ZOMBIE_RESPAWN_TAG); //TODO: this doesnt work
                 respawns++;
                 int respawnChance = MathHelper.floor_double((1.0D / respawns)*SHMConfigMob.zombieRespawnChance);
                 if (!zombie.isVillager() && !zombie.isBurning() && RandomHelper.randomChance(respawnChance)) {
                     zombie.getEntityData().setInteger(EntityHelper.ZOMBIE_RESPAWN_TAG,respawns);
-                    new TaskRespawnZombies(zombie.worldObj,zombie,zombie.getPosition(),SuperHardMode.RNGesus.nextInt(8)*20).run();
+                    new TaskRespawnZombies(zombie,zombie.getPosition(),SuperHardMode.RNGesus.nextInt(8)*20);
                 }
             }
         }

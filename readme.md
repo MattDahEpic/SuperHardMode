@@ -10,9 +10,10 @@ The following features are what exist when loading the mod with the default conf
 * Players cannot make 1-block towers (nerd-poles)
 * Players can't place blocks in unsafe locations such as lava
 
-##Features - Mobs
+##Features - Mobs & Players
 * Zombies apply slowness to the player when they attack
 * Zombies can respawn after being killed
+* Players don't respawn with full health and hunger, to prevent dying to restore hunger
 
 ##Features - Farming
 * ???
