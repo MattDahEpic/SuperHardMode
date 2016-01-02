@@ -23,7 +23,8 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_PLAYER) @Comment({"Should players lose some items when they die.","Meant to discourage players from killing themselves to restore health and hunger."}) public static boolean playerRespawnItemLoss = true;
     @Config(CAT_PLAYER) @Comment({"What percent of stacks should be removed on player death, if enabled?"}) @Range(min = 0f,max = 1f) public static float playerRespawnStackLossMultiplier = 0.3f;
     @Config(CAT_PLAYER) @Comment({"Items and blocks to blacklist from player drop removal.","Formatted as modid:item@meta"}) public static String[] playerRespawnItemLossBlacklist = new String[]{"minecraft:barrier@0"};
-    @Config(CAT_PLAYER) @Comment({"Should tools be damaged instead of destroyed if they are chosen to be removed on death?"}) public static boolean playerRespawnDamageTools = true;
+    @Config(CAT_PLAYER) @Comment({"Should tools end up being destroyed or only brought down to 1 use if playerRespawnToolDamage were to being them below 0 durability?","true = 1 use, false = destroy"}) public static boolean playerRespawnDamageTools = true;
+    @Config(CAT_PLAYER) @Comment({"How much of a tool should be taken away when tools are damaged on death?"}) @Range(min = 0f,max = 1f) public static float playerRespawnToolDamage = 0.1f;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

@@ -4,7 +4,6 @@ import com.mattdahepic.superhardmode.SuperHardMode;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
 import com.mattdahepic.superhardmode.helper.EntityHelper;
-import com.mattdahepic.superhardmode.helper.RandomHelper;
 import com.mattdahepic.superhardmode.mobfeatures.thread.TaskRespawnZombies;
 
 import net.minecraft.entity.monster.EntityZombie;

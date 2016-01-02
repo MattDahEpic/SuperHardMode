@@ -14,6 +14,7 @@ The following features are what exist when loading the mod with the default conf
 * Zombies apply slowness to the player when they attack
 * Zombies can respawn after being killed
 * Players don't respawn with full health and hunger, to prevent dying to restore hunger
+* Players can lose items from the drops they drop on death
 
 ##Features - Farming
 * ???

@@ -1,9 +1,10 @@
 package com.mattdahepic.superhardmode.mobfeatures;
 
+import com.mattdahepic.mdecore.config.MDEConfig;
 import com.mattdahepic.mdecore.helpers.ItemHelper;
+import com.mattdahepic.superhardmode.SuperHardMode;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
-import com.mattdahepic.superhardmode.helper.RandomHelper;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -36,23 +37,32 @@ public class Player {
 
                 List<ItemStack> toRemove = new ArrayList<ItemStack>();
 
-                int dropsToRemove = MathHelper.floor_float(drops.size()*SHMConfigMob.playerRespawnStackLossMultiplier);
+                int dropsToRemove = MathHelper.floor_float(drops.size()*SHMConfigMob.playerRespawnStackLossMultiplier); //FIXME: flooring this wont remove drops when the inventory has 3 slots or less filled
                 for (int i = 0; i < dropsToRemove; i++) {
-                    ItemStack isBlacklist = drops.get(RandomHelper.rand.nextInt(drops.size()));
+                    ItemStack isBlacklist = drops.get(RandomHelper.RAND.nextInt(drops.size()));
                     if (Arrays.asList(SHMConfigMob.playerRespawnItemLossBlacklist).contains(ItemHelper.getNameFromItemStack(isBlacklist))) {
                         continue; //don't remove blacklisted items
                     }
                     toRemove.add(isBlacklist);
                 }
 
+                outer:
                 for (ItemStack remove : toRemove) {
                     for (EntityItem i : e.drops) {
                         if (i.getEntityItem() == remove) {
-                            if (isTool && SHMConfigMob.playerRespawnDamageTools) { //is tool
-                                //damage tool
+                            if (!remove.getItem().getToolClasses(remove).isEmpty()) { //is tool
+                                int dur = remove.getItemDamage();
+                                int maxDur = remove.getMaxDamage();
+                                dur += MathHelper.floor_float((maxDur / 100)*SHMConfigMob.playerRespawnToolDamage);
+                                if (dur >= maxDur && !SHMConfigMob.playerRespawnDamageTools) {
+                                    dur = maxDur - 1; //1 use left
+                                }
+                                remove.setItemDamage(dur); //FIXME: is this broken?
                             } else {
                                 e.drops.remove(i);
+                                if (MDEConfig.debugLogging) SuperHardMode.logger.info("Removed "+i);
                             }
+                            continue outer; //no need to continue testing when it's going to be false
                         }
                     }
                 }
