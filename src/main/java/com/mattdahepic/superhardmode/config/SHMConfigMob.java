@@ -16,10 +16,14 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_ZOMBIE) @Comment({"What should the maximum level of slowness be for players who are attacked by zombies?"}) @Range(min = 2,max = 127) public static int maxZombieHitSlownessStack = 12;
     @Config(CAT_ZOMBIE) @Comment({"Zombies place a block on death and with this chance, if the block is not broken the zombie respawns","Set to 0 to disable"}) @Range(min = 0,max = 100) public static int zombieRespawnChance = 75;
 
-    @Config(CAT_PLAYER) @Comment({"Lowest percent of hunger a player can respawn with, multiplicative.","Set to 0 to disable hunger reduction upon respawn.","Meant to prevent players killing themselves to restore hunger."}) @Range(min = 0f,max = 1f) public static float playerRespawnHungerLow = 0.5f;
+    @Config(CAT_PLAYER) @Comment({"Lowest percent of hunger a player can respawn with, multiplicative.","Set to 0 to disable hunger reduction upon respawn."}) @Range(min = 0f,max = 1f) public static float playerRespawnHungerLow = 0.5f;
     @Config(CAT_PLAYER) @Comment({"Highest percent of hunger a player can respawn with, multiplicative."}) @Range(min = 0f,max = 1f) public static float playerRespawnHungerHigh = 0.75f;
-    @Config(CAT_PLAYER) @Comment({"Lowest percent of health a player can respawn with, multiplicative.","Set to 0 to disable health reducton upon respawn.","Meant to prevent players killing themselves to restore health."}) @Range(min = 0f,max = 1f) public static float playerRespawnHealthLow = 0.5f;
+    @Config(CAT_PLAYER) @Comment({"Lowest percent of health a player can respawn with, multiplicative.","Set to 0 to disable health reduction upon respawn."}) @Range(min = 0f,max = 1f) public static float playerRespawnHealthLow = 0.5f;
     @Config(CAT_PLAYER) @Comment({"Highest percent of health a player can respawn with, multiplicative."}) @Range(min = 0f,max = 1f) public static float playerRespawnHealthHigh = 0.75f;
+    @Config(CAT_PLAYER) @Comment({"Should players lose some items when they die.","Meant to discourage players from killing themselves to restore health and hunger."}) public static boolean playerRespawnItemLoss = true;
+    @Config(CAT_PLAYER) @Comment({"What percent of stacks should be removed on player death, if enabled?"}) @Range(min = 0f,max = 1f) public static float playerRespawnStackLossMultiplier = 0.3f;
+    @Config(CAT_PLAYER) @Comment({"Items and blocks to blacklist from player drop removal.","Formatted as modid:item@meta"}) public static String[] playerRespawnItemLossBlacklist = new String[]{"minecraft:barrier@0"};
+    @Config(CAT_PLAYER) @Comment({"Should tools be damaged instead of destroyed if they are chosen to be removed on death?"}) public static boolean playerRespawnDamageTools = true;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

@@ -1,5 +1,6 @@
 package com.mattdahepic.superhardmode.event;
 
+import com.mattdahepic.superhardmode.mobfeatures.Player;
 import com.mattdahepic.superhardmode.mobfeatures.Zombie;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -14,5 +15,6 @@ public class LivingDeathEventHandler {
     @SubscribeEvent
     public void livingDeathEvent (LivingDeathEvent e) {
         Zombie.handleZombieRespawn(e);
+        Player.handleRespawnItemLoss(e);
     }
 }
