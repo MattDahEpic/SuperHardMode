@@ -1,5 +1,6 @@
 package com.mattdahepic.superhardmode.mobfeatures;
 
+import com.mattdahepic.mdecore.helpers.RandomHelper;
 import com.mattdahepic.superhardmode.SuperHardMode;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;

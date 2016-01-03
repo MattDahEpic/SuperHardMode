@@ -27,7 +27,7 @@ public class SuperHardMode {
     public static final String MODID = "superhardmode";
     public static final String NAME = "Super Hard Mode";
     public static final String VERSION = "@VERSION@";
-    public static final String DEPENDENCIES = "required-after:mdecore@[1.8.8-1.6.1,);";
+    public static final String DEPENDENCIES = "required-after:mdecore@[1.8.8-1.6.5,);";
     public static final String UPDATE_URL = "https://raw.githubusercontent.com/MattDahEpic/Version/master/"+ MinecraftForge.MC_VERSION+"/"+MODID+".txt";
     public static final String CLIENT_PROXY = "com.mattdahepic.superhardmode.helper.ClientProxy";
     public static final String COMMON_PROXY = "com.mattdahepic.superhardmode.helper.CommonProxy";
