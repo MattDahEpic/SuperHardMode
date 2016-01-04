@@ -1,6 +1,7 @@
 #Super Hard Mode
-Super Hard Mode is a mod that adds a ton of difficulty tweaks
-The following features are what exist when loading the mod with the default config
+**Work in Progress! - Features are being added quite fequently, so check back often.**  
+Super Hard Mode is a mod that adds a ton of difficulty tweaks.  
+The following features are what exist when loading the mod with the default config:
 
 ##Features - World
 * Setting out fire by hand sets the player on fire
@@ -15,6 +16,10 @@ The following features are what exist when loading the mod with the default conf
 * Zombies can respawn after being killed
 * Players don't respawn with full health and hunger, to prevent dying to restore hunger
 * Players can lose items from the drops they drop on death
+* Powered creepers spawn naturally
+* Hitting a powered creeper ignites it
+* Any creeper has a chance to drop primed TNT on death
+* Creepers that are on fire when they die will shoot into the air and cause a firework explosion
 
 ##Features - Farming
 * ???

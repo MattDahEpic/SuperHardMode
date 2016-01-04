@@ -18,7 +18,7 @@ public class Softening {
                     BlockPos pos = e.pos.offset(side);
                     ItemStack blockToSoften = new ItemStack(e.world.getBlockState(pos).getBlock(),1,e.world.getBlockState(pos).getBlock().getMetaFromState(e.world.getBlockState(pos)));
                     if (SHMConfigWorld.blocksThatBeSoftened.contains(blockToSoften)) {
-                        FallingBlockHelper.turnBlockToFallingSand(e.world, pos);
+                        FallingBlockHelper.turnBlockToFallingSand(e.world, pos); //FIXME: doesnt work
                     }
                 }
             }
