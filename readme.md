@@ -20,6 +20,11 @@ The following features are what exist when loading the mod with the default conf
 * Hitting a powered creeper ignites it
 * Any creeper has a chance to drop primed TNT on death
 * Creepers that are on fire when they die will shoot into the air and cause a firework explosion
+* Blazes spawn naturally in the nether instead of only near spawners
+* Blazes spawn naturally at low levels in the overworld
+* Blazes can drop gunpowder and glowstone dust
+* Blazes killed in the nether multiply
+* Blazes killed in the overworld explode
 
 ##Features - Farming
 * ???

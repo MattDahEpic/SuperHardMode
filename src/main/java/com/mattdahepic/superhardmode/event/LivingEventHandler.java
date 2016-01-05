@@ -3,6 +3,7 @@ package com.mattdahepic.superhardmode.event;
 import com.mattdahepic.superhardmode.mobfeatures.Creeper;
 import com.mattdahepic.superhardmode.mobfeatures.Player;
 import com.mattdahepic.superhardmode.mobfeatures.Zombie;
+import com.mattdahepic.superhardmode.worldfeatures.Blaze;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.*;
@@ -22,14 +23,19 @@ public class LivingEventHandler {
         Zombie.handleZombieRespawn(e);
         Creeper.handleTntDropOnDeath(e);
         Creeper.handleDeathFireworks(e);
+        Blaze.handleNetherKills(e);
+        Blaze.handleOverworldKills(e);
     }
     @SubscribeEvent
     public void livingDropsEvent (LivingDropsEvent e) {
         Player.handleRespawnItemLoss(e);
+        Blaze.handleLootTweaks(e);
     }
     @SubscribeEvent
     public void livingSpawnEvent (LivingSpawnEvent e) {
         Creeper.handlePoweredSpawning(e);
+        Blaze.handleNetherSpawning(e);
+        Blaze.handleBlazeSpawningNearBedrock(e);
     }
     @SubscribeEvent
     public void livingHurtEvent (LivingHurtEvent e) {
