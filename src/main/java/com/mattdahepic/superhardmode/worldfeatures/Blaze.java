@@ -2,10 +2,12 @@ package com.mattdahepic.superhardmode.worldfeatures;
 
 import com.mattdahepic.mdecore.helpers.RandomHelper;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
+import com.mattdahepic.superhardmode.helper.TagHelper;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.item.EntityTNTPrimed;
 import net.minecraft.entity.monster.*;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -43,11 +45,25 @@ public class Blaze {
         }
     }
     public static void handleNetherKills (LivingDeathEvent e) {
-        //TODO
+        if (e.entity.worldObj.provider.getDimensionId() == -1 && e.entity instanceof EntityBlaze && e.source.getEntity() instanceof EntityPlayer) {
+            int respawns = TagHelper.getFlagRespawns(e.entity) + 1;
+            if (RandomHelper.randomChance(SHMConfigMob.blazeNetherKillRespawnChance/respawns)) { //FIXME: may result in floats
+                EntityBlaze blz1 = new EntityBlaze(e.entity.worldObj);
+                EntityBlaze blz2 = new EntityBlaze(e.entity.worldObj);
+                blz1.setPosition(e.entity.posX,e.entity.posY,e.entity.posZ);
+                blz2.setPosition(e.entity.posX,e.entity.posY,e.entity.posZ);
+                blz1.setVelocity(1, 0, 1);
+                blz2.setVelocity(-1, 0, -1);
+                TagHelper.flagRespawns(blz1, respawns);
+                TagHelper.flagRespawns(blz2,respawns);
+                e.entity.worldObj.spawnEntityInWorld(blz1);
+                e.entity.worldObj.spawnEntityInWorld(blz2);
+            }
+        }
     }
     public static void handleOverworldKills (LivingDeathEvent e) {
-        if (e.entity.worldObj.provider.getDimensionId() == -1 && e.entity instanceof EntityBlaze) {
-            if (RandomHelper.randomChance(SHMConfigMob.blazeOverworldDeathExplode)) {
+        if (e.entity.worldObj.provider.getDimensionId() == 0 && e.entity instanceof EntityBlaze) {
+            if (RandomHelper.randomChance(SHMConfigMob.blazeOverworldDeathExplode) && e.source.getEntity() instanceof EntityPlayer) {
                 EntityTNTPrimed tnt = new EntityTNTPrimed(e.entity.worldObj, e.entity.posX, e.entity.posY, e.entity.posZ, e.entityLiving);
                 tnt.fuse = 1;
                 e.entity.worldObj.spawnEntityInWorld(tnt);

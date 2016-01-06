@@ -36,7 +36,8 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_BLAZE) @Comment({"What chance should blazes have to spawn in the nether naturally?","Set to 0 to disable."}) @Range(min = 0,max = 100) public static int blazeNetherSpawnChance = 30;
     @Config(CAT_BLAZE) @Comment({"What chance should blazes have to spawn near bedrock in the overworld?","Set to 0 to disable."}) @Range(min = 0,max = 100) public static int blazeOverworldLowLevelSpawnChance = 30;
     @Config(CAT_BLAZE) @Comment({"Should blazes drop extra items such as glowstone and gunpowder?"}) public static boolean blazeExtraDrops = true;
-    @Config(CAT_BLAZE) @Comment({"What chance should blazes have of exploding on death in the overworld?","Set to 0 to disable"}) @Range(min = 0,max = 100) public static int blazeOverworldDeathExplode = 3;
+    @Config(CAT_BLAZE) @Comment({"What chance should blazes have of exploding on death in the overworld?","Set to 0 to disable"}) @Range(min = 0,max = 100) public static int blazeOverworldDeathExplode = 50;
+    @Config(CAT_BLAZE) @Comment({"What chance should blazes have to multiply when killed in the nether?","Final chance is calculated by dividing this value by how many times the blaze has already respawned."}) @Range(min = 0,max = 100) public static int blazeNetherKillRespawnChance = 50;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

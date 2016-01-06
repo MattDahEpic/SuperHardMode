@@ -1,6 +1,6 @@
 package com.mattdahepic.superhardmode.mobfeatures.thread;
 
-import com.mattdahepic.superhardmode.helper.EntityHelper;
+import com.mattdahepic.superhardmode.helper.TagHelper;
 
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.util.BlockPos;
@@ -27,13 +27,13 @@ public class TaskRespawnZombies {
         if (startWorldTime == 0) { //not initialized
             startWorldTime = e.world.getTotalWorldTime();
         } else if (e.world.getTotalWorldTime() < startWorldTime + respawnTicks) { //not to respawn time
-            e.world.spawnParticle(EnumParticleTypes.FLAME, pos.getX(), pos.getY(), pos.getZ(),1,1,1); //TODO: make dis wurk
+            e.world.spawnParticle(EnumParticleTypes.FLAME, pos.getX(), pos.getY(), pos.getZ(),1,1,1); //FIXME: this doesnt work
         } else { //respawn time
             EntityZombie zombieNew = new EntityZombie(e.world);
-            EntityHelper.copySHMTags(zombie, zombieNew);
-            EntityHelper.flagLootless(zombieNew, true);
+            TagHelper.copySHMTags(zombie, zombieNew);
+            TagHelper.flagLootless(zombieNew, true);
             zombieNew.setPosition(pos.getX(),pos.getY(),pos.getZ());
-            zombieNew.setHealth(zombieNew.getMaxHealth()/2); //TODO: does this work?
+            zombieNew.setHealth(zombieNew.getMaxHealth()/2); //FIXME: zombies spawn with full health
             e.world.spawnEntityInWorld(zombieNew);
             MinecraftForge.EVENT_BUS.unregister(this);
         }

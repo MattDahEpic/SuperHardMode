@@ -4,14 +4,13 @@ import com.mattdahepic.mdecore.helpers.RandomHelper;
 import com.mattdahepic.superhardmode.SuperHardMode;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
-import com.mattdahepic.superhardmode.helper.EntityHelper;
+import com.mattdahepic.superhardmode.helper.TagHelper;
 import com.mattdahepic.superhardmode.mobfeatures.thread.TaskRespawnZombies;
 
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 
@@ -34,15 +33,12 @@ public class Zombie {
         }
     }
     public static void handleZombieRespawn (LivingDeathEvent e) {
-        if (SHMConfigMob.zombieRespawnChance > 0 && !EntityHelper.hasFlagIgnored(e.entity)) {
+        if (SHMConfigMob.zombieRespawnChance > 0 && !TagHelper.getFlagIgnored(e.entity)) {
             if (e.entity instanceof EntityZombie) {
-                EntityZombie zombie = (EntityZombie)e.entity;
-                int respawns = zombie.getEntityData().getInteger(EntityHelper.ZOMBIE_RESPAWN_TAG); //TODO: this doesnt work
-                respawns++;
-                int respawnChance = MathHelper.floor_double((1.0D / respawns)*SHMConfigMob.zombieRespawnChance);
-                if (!zombie.isVillager() && !zombie.isBurning() && RandomHelper.randomChance(respawnChance)) {
-                    zombie.getEntityData().setInteger(EntityHelper.ZOMBIE_RESPAWN_TAG,respawns);
-                    new TaskRespawnZombies(zombie,zombie.getPosition(),SuperHardMode.RNGesus.nextInt(8)*20);
+                int respawns = TagHelper.getFlagRespawns(e.entity)+1;
+                if (!((EntityZombie) e.entity).isVillager() && !e.entity.isBurning() && RandomHelper.randomChance(SHMConfigMob.zombieRespawnChance/respawns)) {
+                    TagHelper.flagRespawns(e.entity,respawns);
+                    new TaskRespawnZombies((EntityZombie)e.entity,e.entity.getPosition(),SuperHardMode.RNGesus.nextInt(8)*20);
                 }
             }
         }
