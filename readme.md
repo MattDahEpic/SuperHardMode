@@ -25,6 +25,8 @@ The following features are what exist when loading the mod with the default conf
 * Blazes can drop gunpowder and glowstone dust
 * Blazes killed in the nether multiply
 * Blazes killed in the overworld explode
+* Pigmen always drop nether warts when killed in nether fortresses, and have a chance to drop nether warts when killed anywhere in the nether
+* Pigmen are always aggro in the nether
 
 ##Features - Farming
 * ???

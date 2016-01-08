@@ -12,6 +12,7 @@ public class SHMConfigMob extends ConfigSyncable {
     public static final String CAT_PLAYER = "player";
     public static final String CAT_CREEPER = "creeper";
     public static final String CAT_BLAZE = "blaze";
+    public static final String CAT_PIGMAN = "pigman";
 
     @Config(CAT_ZOMBIE) @Comment({"Should zombies apply slowness to players when they attack and hit?"}) public static boolean zombieHitSlowness = true;
     @Config(CAT_ZOMBIE) @Comment({"Should multiple hits from zombie(s) stack the slowness effect?"}) public static boolean stackZombieHitSlowness = true;
@@ -38,6 +39,11 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_BLAZE) @Comment({"Should blazes drop extra items such as glowstone and gunpowder?"}) public static boolean blazeExtraDrops = true;
     @Config(CAT_BLAZE) @Comment({"What chance should blazes have of exploding on death in the overworld?","Set to 0 to disable"}) @Range(min = 0,max = 100) public static int blazeOverworldDeathExplode = 50;
     @Config(CAT_BLAZE) @Comment({"What chance should blazes have to multiply when killed in the nether?","Final chance is calculated by dividing this value by how many times the blaze has already respawned."}) @Range(min = 0,max = 100) public static int blazeNetherKillRespawnChance = 50;
+
+    @Config(CAT_PIGMAN) @Comment({"Should pigmen drop nether warts when killed in a nether fortress?"}) public static boolean pigmanDropWartInFortress = true;
+    @Config(CAT_PIGMAN) @Comment({"What chance should pigmen have to drop nether warts anywhere in the nether when killed?","Set to 0 to disable."}) @Range(min = 0,max = 100) public static int pigmenDropWartInNetherChance = 15;
+    @Config(CAT_PIGMAN) @Comment({"Should pigmen always be aggro in the nether?"}) public static boolean pigmenAlwaysAggroNether = true;
+    @Config(CAT_PIGMAN) @Comment({"Should pigmen spawn in the overworld where lightning strikes?"}) public static boolean pigmenOverworldLightningSpawn = true;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

@@ -4,8 +4,10 @@ import com.mattdahepic.superhardmode.mobfeatures.Creeper;
 import com.mattdahepic.superhardmode.mobfeatures.Player;
 import com.mattdahepic.superhardmode.mobfeatures.Zombie;
 import com.mattdahepic.superhardmode.worldfeatures.Blaze;
+import com.mattdahepic.superhardmode.worldfeatures.PigZombie;
 
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -30,15 +32,21 @@ public class LivingEventHandler {
     public void livingDropsEvent (LivingDropsEvent e) {
         Player.handleRespawnItemLoss(e);
         Blaze.handleLootTweaks(e);
+        PigZombie.handleDropNetherWart(e);
     }
     @SubscribeEvent
     public void livingSpawnEvent (LivingSpawnEvent e) {
         Creeper.handlePoweredSpawning(e);
         Blaze.handleNetherSpawning(e);
         Blaze.handleBlazeSpawningNearBedrock(e);
+        PigZombie.handleAlwaysAggroSpawn(e);
     }
     @SubscribeEvent
     public void livingHurtEvent (LivingHurtEvent e) {
         Creeper.handlePoweredHitExplode(e);
+    }
+    @SubscribeEvent
+    public void entityJoinWorldEvent (EntityJoinWorldEvent e) {
+        PigZombie.handleAlwaysAggroChunkReload(e);
     }
 }
