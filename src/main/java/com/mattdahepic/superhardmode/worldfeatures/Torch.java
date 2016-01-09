@@ -2,8 +2,10 @@ package com.mattdahepic.superhardmode.worldfeatures;
 
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigWorld;
+import com.mattdahepic.superhardmode.worldfeatures.thread.TaskUnlightTorches;
 
 import net.minecraft.init.Blocks;
+import net.minecraft.world.chunk.Chunk;
 import net.minecraftforge.event.world.BlockEvent;
 
 public class Torch {
@@ -24,6 +26,13 @@ public class Torch {
                     e.player.playSound("random.fizz", 1.0F, 1.0F);
                 }
                 return;
+            }
+        }
+    }
+    public static void handleTorchUnlighting (BlockEvent.PlaceEvent e) {
+        if (e.changeTo == WeatherEvent.Change.WeatherType.RAIN || e.changeTo == WeatherEvent.Change.WeatherType.STORM) {
+            for (Chunk c : e.world.getLoadedChunks()) { //FIXME
+                new TaskUnlightTorches(c);
             }
         }
     }

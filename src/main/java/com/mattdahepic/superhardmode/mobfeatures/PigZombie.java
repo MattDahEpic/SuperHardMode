@@ -1,4 +1,4 @@
-package com.mattdahepic.superhardmode.worldfeatures;
+package com.mattdahepic.superhardmode.mobfeatures;
 
 import com.mattdahepic.mdecore.helpers.RandomHelper;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;

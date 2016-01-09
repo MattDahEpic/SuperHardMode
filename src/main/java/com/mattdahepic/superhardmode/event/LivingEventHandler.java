@@ -1,10 +1,6 @@
 package com.mattdahepic.superhardmode.event;
 
-import com.mattdahepic.superhardmode.mobfeatures.Creeper;
-import com.mattdahepic.superhardmode.mobfeatures.Player;
-import com.mattdahepic.superhardmode.mobfeatures.Zombie;
-import com.mattdahepic.superhardmode.worldfeatures.Blaze;
-import com.mattdahepic.superhardmode.worldfeatures.PigZombie;
+import com.mattdahepic.superhardmode.mobfeatures.*;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
