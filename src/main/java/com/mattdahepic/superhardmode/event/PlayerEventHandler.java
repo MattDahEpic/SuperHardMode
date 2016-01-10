@@ -2,6 +2,7 @@ package com.mattdahepic.superhardmode.event;
 
 import com.mattdahepic.superhardmode.mobfeatures.Player;
 import com.mattdahepic.superhardmode.worldfeatures.Fire;
+import com.mattdahepic.superhardmode.worldfeatures.Misc;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
@@ -20,5 +21,6 @@ public class PlayerEventHandler {
     @SubscribeEvent
     public void playerInteractEvent (PlayerInteractEvent e) {
         Fire.handlePlayerSetOnFire(e);
+        Misc.cactusBreakDamagePlayer(e);
     }
 }

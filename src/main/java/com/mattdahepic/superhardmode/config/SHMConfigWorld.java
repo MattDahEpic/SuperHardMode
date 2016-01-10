@@ -17,6 +17,7 @@ public class SHMConfigWorld extends ConfigSyncable {
     public static final String CAT_TORCHES = "torches";
     public static final String CAT_FIRE = "fire";
     public static final String CAT_LIMBUILD = "limited_building";
+    public static final String CAT_DAMAGE = "damage";
 
     @Config(CAT_TORCHES) @Comment({"As you venture deeper into the core of the world, the air becomes thinner.","Below what Y-level should torches pop off the wall due to lack of air?"}) @Range(min=0,max=255) public static int torchMinY = 30;
     @Config(CAT_TORCHES) @Comment({"Since torches are a stick with fire on them, should they go out in the rain?"}) public static boolean torchRainBreak = true;
@@ -33,6 +34,8 @@ public class SHMConfigWorld extends ConfigSyncable {
 
     @Config(CAT_LIMBUILD) @Comment({"Should the player be disallowed to place blocks directly below them?","Prevents \"nerd poles\" aka 1 block towers"}) public static boolean antiNerdPole = true;
     @Config(CAT_LIMBUILD) @Comment({"Should the player be disallowed to place blocks in unsafe locations?","Unsafe locations include in lava and in midair."}) public static boolean disallowUnsafePlacement = true;
+
+    @Config(CAT_DAMAGE) @Comment({"Does punching a cactus with your fist hurt?"}) public static boolean breakingCactusWithBareHandsHurts = true;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

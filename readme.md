@@ -28,6 +28,7 @@ The following features are what exist when loading the mod with the default conf
 * Pigmen always drop nether warts when killed in nether fortresses, and have a chance to drop nether warts when killed anywhere in the nether
 * Pigmen are always aggro in the nether
 * Pigmen spawn wherever lightnig strikes
+* Breaking cactus with bare hands hurts
 
 ##Features - Farming
 * ???
