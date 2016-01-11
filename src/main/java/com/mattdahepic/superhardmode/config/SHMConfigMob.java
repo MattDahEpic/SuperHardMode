@@ -13,6 +13,8 @@ public class SHMConfigMob extends ConfigSyncable {
     public static final String CAT_CREEPER = "creeper";
     public static final String CAT_BLAZE = "blaze";
     public static final String CAT_PIGMAN = "pigman";
+    public static final String CAT_WITCH = "witch";
+    public static final String CAT_GHAST = "ghast";
 
     @Config(CAT_ZOMBIE) @Comment({"Should zombies apply slowness to players when they attack and hit?"}) public static boolean zombieHitSlowness = true;
     @Config(CAT_ZOMBIE) @Comment({"Should multiple hits from zombie(s) stack the slowness effect?"}) public static boolean stackZombieHitSlowness = true;
@@ -44,6 +46,12 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_PIGMAN) @Comment({"What chance should pigmen have to drop nether warts anywhere in the nether when killed?","Set to 0 to disable."}) @Range(min = 0,max = 100) public static int pigmenDropWartInNetherChance = 15;
     @Config(CAT_PIGMAN) @Comment({"Should pigmen always be aggro in the nether?"}) public static boolean pigmenAlwaysAggroNether = true;
     @Config(CAT_PIGMAN) @Comment({"Should pigmen spawn in the overworld where lightning strikes?"}) public static boolean pigmenOverworldLightningSpawn = true;
+
+    @Config(CAT_WITCH) @Comment({"What chance should witches have to spawn on the surface instead of a zombie?","Set to 0 to disable"}) @Range(min = 0,max = 100) public static int witchNatSpawnChance = 13;
+
+    @Config(CAT_GHAST) @Comment({"Should ghasts be immune to arrows?","When set to true the loot dropped by ghasts is MUCH better."}) public static boolean ghastImmuneToArrows = true;
+    @Config(CAT_GHAST) @Comment({"What should the XP a ghast drops be multiplied by if it's immune to arrows?","Final Ghast XP drop = floor(base xp drop * this value)"}) @Range(min = 0f) public static float ghastXpMultiplier = 7f;
+    @Config(CAT_GHAST) @Comment({"What should the items a ghast drops be multiplied by if it's immune to arrows","for each drop { stack size = floor(base stack size * this value) }"}) @Range(min = 0f) public static float ghastDropMultiplier = 3f;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

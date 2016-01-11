@@ -29,6 +29,7 @@ public class LivingEventHandler {
         Player.handleRespawnItemLoss(e);
         Blaze.handleLootTweaks(e);
         PigZombie.handleDropNetherWart(e);
+        Ghast.hellaLoot(e);
     }
     @SubscribeEvent
     public void livingSpawnEvent (LivingSpawnEvent e) {
@@ -36,13 +37,19 @@ public class LivingEventHandler {
         Blaze.handleNetherSpawning(e);
         Blaze.handleBlazeSpawningNearBedrock(e);
         PigZombie.handleAlwaysAggroSpawn(e);
+        Witch.naturalWitchSpawning(e);
     }
     @SubscribeEvent
     public void livingHurtEvent (LivingHurtEvent e) {
         Creeper.handlePoweredHitExplode(e);
+        Ghast.nullifyArrowDamage(e);
     }
     @SubscribeEvent
     public void entityJoinWorldEvent (EntityJoinWorldEvent e) {
         PigZombie.handleAlwaysAggroChunkReload(e);
+    }
+    @SubscribeEvent
+    public void experienceDropEvent (LivingExperienceDropEvent e) {
+        Ghast.hellaExperience(e);
     }
 }

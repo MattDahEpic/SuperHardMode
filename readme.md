@@ -29,6 +29,8 @@ The following features are what exist when loading the mod with the default conf
 * Pigmen are always aggro in the nether
 * Pigmen spawn wherever lightnig strikes
 * Breaking cactus with bare hands hurts
+* Ghasts are immune to arrows and drop tons more items and xp as a result
+* Witches spawn naturally
 
 ##Features - Farming
 * ???
