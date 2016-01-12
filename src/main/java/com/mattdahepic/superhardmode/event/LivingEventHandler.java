@@ -36,8 +36,10 @@ public class LivingEventHandler {
         Creeper.handlePoweredSpawning(e);
         Blaze.handleNetherSpawning(e);
         Blaze.handleBlazeSpawningNearBedrock(e);
-        PigZombie.handleAlwaysAggroSpawn(e);
+        PigZombie.handleAlwaysAggro(e);
         Witch.naturalWitchSpawning(e);
+        Spider.handleSpeedIncrease(e);
+        Spider.handleMoreSpidersDeeper(e);
     }
     @SubscribeEvent
     public void livingHurtEvent (LivingHurtEvent e) {
@@ -46,7 +48,8 @@ public class LivingEventHandler {
     }
     @SubscribeEvent
     public void entityJoinWorldEvent (EntityJoinWorldEvent e) {
-        PigZombie.handleAlwaysAggroChunkReload(e);
+        PigZombie.handleAlwaysAggro(e);
+        Spider.handleSpeedIncrease(e);
     }
     @SubscribeEvent
     public void experienceDropEvent (LivingExperienceDropEvent e) {

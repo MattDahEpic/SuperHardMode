@@ -15,6 +15,7 @@ public class SHMConfigMob extends ConfigSyncable {
     public static final String CAT_PIGMAN = "pigman";
     public static final String CAT_WITCH = "witch";
     public static final String CAT_GHAST = "ghast";
+    public static final String CAT_SPIDER = "spider";
 
     @Config(CAT_ZOMBIE) @Comment({"Should zombies apply slowness to players when they attack and hit?"}) public static boolean zombieHitSlowness = true;
     @Config(CAT_ZOMBIE) @Comment({"Should multiple hits from zombie(s) stack the slowness effect?"}) public static boolean stackZombieHitSlowness = true;
@@ -52,6 +53,10 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_GHAST) @Comment({"Should ghasts be immune to arrows?","When set to true the loot dropped by ghasts is MUCH better."}) public static boolean ghastImmuneToArrows = true;
     @Config(CAT_GHAST) @Comment({"What should the XP a ghast drops be multiplied by if it's immune to arrows?","Final Ghast XP drop = floor(base xp drop * this value)"}) @Range(min = 0f) public static float ghastXpMultiplier = 7f;
     @Config(CAT_GHAST) @Comment({"What should the items a ghast drops be multiplied by if it's immune to arrows","for each drop { stack size = floor(base stack size * this value) }"}) @Range(min = 0f) public static float ghastDropMultiplier = 3f;
+
+    @Config(CAT_SPIDER) @Comment({"How fast should spiders move?","Vanilla value is 0.699999988079071"}) @Range(min = 0f,max = 100f) public static float spiderHellaFast = 3f;
+    @Config(CAT_SPIDER) @Comment({"What chance should spiders have to spawn undergound instead of a zombie?"}) @Range(min = 0,max = 100) public static int spiderUndergroundSpawnChance = 30;
+    @Config(CAT_SPIDER) @Comment({"Should spiders place webs on death (with some exceptions)?"}) public static boolean spiderPlaceWebsOnDeath = true;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {

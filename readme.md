@@ -1,7 +1,6 @@
 #Super Hard Mode
 **Work in Progress! - Features are being added quite fequently, so check back often.**  
-Super Hard Mode is a mod that adds a ton of difficulty tweaks.  
-The following features are what exist when loading the mod with the default config:
+Super Hard Mode is a mod that adds a ton of difficulty tweaks.
 
 ##Features - World
 * Setting out fire by hand sets the player on fire
@@ -12,25 +11,35 @@ The following features are what exist when loading the mod with the default conf
 * Players can't place blocks in unsafe locations such as lava
 
 ##Features - Mobs & Players
-* Zombies apply slowness to the player when they attack
-* Zombies can respawn after being killed
-* Players don't respawn with full health and hunger, to prevent dying to restore hunger
-* Players can lose items from the drops they drop on death
-* Powered creepers spawn naturally
-* Hitting a powered creeper ignites it
-* Any creeper has a chance to drop primed TNT on death
-* Creepers that are on fire when they die will shoot into the air and cause a firework explosion
-* Blazes spawn naturally in the nether instead of only near spawners
-* Blazes spawn naturally at low levels in the overworld
-* Blazes can drop gunpowder and glowstone dust
-* Blazes killed in the nether multiply
-* Blazes killed in the overworld explode
-* Pigmen always drop nether warts when killed in nether fortresses, and have a chance to drop nether warts when killed anywhere in the nether
-* Pigmen are always aggro in the nether
-* Pigmen spawn wherever lightnig strikes
-* Breaking cactus with bare hands hurts
+* Player:
+    * Players don't respawn with full health and hunger, to prevent dying to restore hunger
+    * Players can lose items from the drops they drop on death
+    * Breaking cactus with bare hands hurts
+* Creeper:
+    * Powered creepers spawn naturally
+    * Any creeper has a chance to drop primed TNT on death
+    * Hitting a powered creeper ignites it
+    * Creepers that are on fire when they die will shoot into the air and cause a firework explosion
+* Zombie:
+    * Zombies apply slowness to the player when they attack
+    * Zombies can respawn after being killed
+* Blaze:
+    * Blazes spawn naturally in the nether instead of only near spawners
+    * Blazes spawn naturally at low levels in the overworld
+    * Blazes can drop gunpowder and glowstone dust
+    * Blazes killed in the nether multiply
+    * Blazes killed in the overworld explode
+* Zombie Pigman:
+    * Pigmen always drop nether warts when killed in nether fortresses, and have a chance to drop nether warts when killed anywhere in the nether
+    * Pigmen are always aggro in the nether
+    * Pigmen spawn wherever lightning strikes
 * Ghasts are immune to arrows and drop tons more items and xp as a result
-* Witches spawn naturally
+* Witches:
+    * Witches spawn naturally
+* Spiders:
+    * Spiders move ~~very~~ hella fast
+    * Spiders spawn more often the deeper you go
+    * Spiders occasionally place down webs when they die
 
 ##Features - Farming
 * ???

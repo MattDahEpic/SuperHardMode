@@ -27,12 +27,12 @@ public class PigZombie {
             }
         }
     }
-    public static void handleAlwaysAggroSpawn (LivingSpawnEvent e) {
+    public static void handleAlwaysAggro(LivingSpawnEvent e) {
         if (e.entity instanceof EntityPigZombie && e.world.provider.getDimensionId() == -1 && SHMConfigMob.pigmenAlwaysAggroNether) {
             ReflectionHelper.setPrivateValue(EntityPigZombie.class,(EntityPigZombie)e.entity,Integer.MAX_VALUE,"angerLevel","field_70837_d");
         }
     }
-    public static void handleAlwaysAggroChunkReload (EntityJoinWorldEvent e) {
+    public static void handleAlwaysAggro(EntityJoinWorldEvent e) {
         if (e.entity instanceof EntityPigZombie && e.world.provider.getDimensionId() == -1 && SHMConfigMob.pigmenAlwaysAggroNether) {
             ReflectionHelper.setPrivateValue(EntityPigZombie.class,(EntityPigZombie)e.entity,Integer.MAX_VALUE,"angerLevel","field_70837_d");
         }
