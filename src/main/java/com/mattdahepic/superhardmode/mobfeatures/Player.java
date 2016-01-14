@@ -10,8 +10,13 @@ import com.mattdahepic.superhardmode.config.SHMConfigMob;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
+import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import java.util.ArrayList;
@@ -67,6 +72,47 @@ public class Player {
                         }
                     }
                 }
+            }
+        }
+    }
+    public static void handleDamageEffects (LivingHurtEvent e) {
+        //FIXME: cooldown so messages aren't spammed -OR- extra utilites-like replacing chat message
+        if (e.entity instanceof EntityPlayer && SHMConfigMob.playerDamageEffects && !SHMConfigMain.shouldPlayerBypass((EntityPlayer)e.entity)) {
+            switch (e.source.damageType) {
+                case "fall": //slowness 3 for 40 ticks (your legs are broken)
+                    if (SHMConfigMain.playerMessages) e.entity.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"Your legs broke!"));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,40,2,false,false));
+                    break;
+                case "inWall": //blindness 2 for 20 ticks & haste 4 for 20 ticks (you panic while trying to get out of the wall)
+                    if (SHMConfigMain.playerMessages) e.entity.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"You panic while trying to get out of the wall."));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.blindness.id,20,1,false,false));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.digSpeed.id,20,3,false,false));
+                    break;
+                case "explosion": //nauesa 3 for 120 ticks & blindness 1 for 30 ticks (your brain got knocked around in the blast)
+                    if (SHMConfigMain.playerMessages) e.entity.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"Your brain got knocked around in the blast!"));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.confusion.id,120,2,false,false));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.blindness.id,30,1,false,false));
+                    break;
+                case "lava": //blindness 1 for 40 ticks & slowness 1 for 40 ticks (you burn up)
+                    if (SHMConfigMain.playerMessages) e.entity.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"You burn in the lava."));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.blindness.id,40,0,false,false));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,40,0,false,false));
+                    break;
+                case "onFire": //blindness 1 for 40 ticks (your eyes burned out)
+                    if (SHMConfigMain.playerMessages) e.entity.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"Your eyes fall to the ground with a soft, firey plop."));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.blindness.id,40,0,false,false));
+                    break;
+                case "drown": //blindness 5 for 20 ticks (as you panic beneath the waves you begin to lose sense of the world around you)
+                    if (SHMConfigMain.playerMessages) e.entity.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"As you panic beneath the waves, you begin to lose sense of the world around you."));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.blindness.id,20,4,false,false));
+                    break;
+                case "starve": //nauesa 20 for 360 ticks & slowness 2 for 20 ticks (your brain begins to lack the energy needed for coherent thought)
+                    if (SHMConfigMain.playerMessages) e.entity.addChatMessage(new ChatComponentText(EnumChatFormatting.RED+"Your brain begins to lack the energy needed for coherent thought and your legs fall out from beneath you."));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.confusion.id,360,19,false,false));
+                    ((EntityPlayer) e.entity).addPotionEffect(new PotionEffect(Potion.moveSlowdown.id,20,1,false,false));
+                    break;
+                default:
+                    break;
             }
         }
     }

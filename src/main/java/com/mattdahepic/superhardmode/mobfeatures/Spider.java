@@ -56,10 +56,10 @@ public class Spider {
             if (!(world.getBlockState(pos).getBlock() instanceof BlockAir)) { //don't replace things that aren't air
                 continue;
             }
+            if (world.getBlockState(pos.down()).getBlock() instanceof BlockAir) { //don't place in midair
+                continue;
+            }
             for (EnumFacing side : EnumFacing.values()) {
-                if (world.getBlockState(pos.offset(side)).getBlock() instanceof BlockAir) { //don't place in midair
-                    continue nextBlock;
-                }
                 if (world.getBlockState(pos.offset(side)).getBlock() instanceof BlockCactus) { //don't place next to cactus (cause it'll break the cactus)
                     continue nextBlock;
                 }

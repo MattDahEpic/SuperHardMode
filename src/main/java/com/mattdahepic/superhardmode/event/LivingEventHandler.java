@@ -45,6 +45,7 @@ public class LivingEventHandler {
     public void livingHurtEvent (LivingHurtEvent e) {
         Creeper.handlePoweredHitExplode(e);
         Ghast.nullifyArrowDamage(e);
+        Player.handleDamageEffects(e);
     }
     @SubscribeEvent
     public void entityJoinWorldEvent (EntityJoinWorldEvent e) {

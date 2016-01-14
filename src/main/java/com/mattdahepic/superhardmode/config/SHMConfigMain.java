@@ -16,6 +16,8 @@ public class SHMConfigMain extends ConfigSyncable {
     public static final String CAT_BYPASS = "bypass";
     public static final String CAT_SOUNDS = "sounds";
 
+    @Config @Comment({"Should some messages be displayed to players for effects that wouldn't fit well with vanilla, or when the player is likely panicking?"}) public static boolean playerMessages = true;
+
     @Config(CAT_BYPASS) @Comment({"Should Super Hard Mode player features be disabled for players in creative?"}) public static boolean bypassCreative = true;
     @Config(CAT_BYPASS) @Comment({"Should Super Hard Mode player features be disabled for operators?"}) public static boolean bypassOps = false;
 

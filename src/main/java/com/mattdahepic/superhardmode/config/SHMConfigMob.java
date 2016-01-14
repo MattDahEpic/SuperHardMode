@@ -31,6 +31,7 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_PLAYER) @Comment({"Items and blocks to blacklist from player drop removal.","Formatted as modid:item@meta"}) public static String[] playerRespawnItemLossBlacklist = new String[]{"minecraft:barrier@0"};
     @Config(CAT_PLAYER) @Comment({"Should tools end up being destroyed or only brought down to 1 use if playerRespawnToolDamage were to being them below 0 durability?","true = 1 use, false = destroy"}) public static boolean playerRespawnDamageTools = true;
     @Config(CAT_PLAYER) @Comment({"How much of a tool should be taken away when tools are damaged on death?"}) @Range(min = 0f,max = 1f) public static float playerRespawnToolDamage = 0.1f;
+    @Config(CAT_PLAYER) @Comment({"Should potion effect be applied when the player takes certain environmental damage?","Example: slowness to emulate broken legs after taking fall damage?"}) public static boolean playerDamageEffects = true;
 
     @Config(CAT_CREEPER) @Comment({"What is the chance for charged creepers to spawn naturally?","Set to 0 to disable."}) @Range(min = 0,max = 100) public static int creeperPoweredSpawnChance = 15;
     @Config(CAT_CREEPER) @Comment({"Should charged creepers explode when hit?"}) public static boolean creeperPoweredHitExplode = true;
