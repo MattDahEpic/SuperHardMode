@@ -15,6 +15,7 @@ Super Hard Mode is a mod that adds a ton of difficulty tweaks.
     * Players don't respawn with full health and hunger, to prevent dying to restore hunger
     * Players can lose items from the drops they drop on death
     * Breaking cactus with bare hands hurts
+    * Special effects happen for certain environmental damage sources
 * Creeper:
     * Powered creepers spawn naturally
     * Any creeper has a chance to drop primed TNT on death
