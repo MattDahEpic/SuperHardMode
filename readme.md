@@ -35,6 +35,7 @@ Super Hard Mode is a mod that adds a ton of difficulty tweaks.
     * Pigmen are always aggro in the nether
     * Pigmen spawn wherever lightning strikes
 * Ghasts are immune to arrows and drop tons more items and xp as a result
+* Endermen can teleport the players as well as themselves when aggro
 * Witches:
     * Witches spawn naturally
 * Spiders:

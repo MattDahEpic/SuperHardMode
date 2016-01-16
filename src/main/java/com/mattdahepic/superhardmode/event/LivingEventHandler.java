@@ -56,4 +56,8 @@ public class LivingEventHandler {
     public void experienceDropEvent (LivingExperienceDropEvent e) {
         Ghast.hellaExperience(e);
     }
+    @SubscribeEvent
+    public void enderTeleportEvent (EnderTeleportEvent e) {
+        Enderman.handlePlayerTeleport(e);
+    }
 }

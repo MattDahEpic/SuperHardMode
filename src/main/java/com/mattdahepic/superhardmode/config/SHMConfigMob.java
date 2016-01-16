@@ -16,6 +16,7 @@ public class SHMConfigMob extends ConfigSyncable {
     public static final String CAT_WITCH = "witch";
     public static final String CAT_GHAST = "ghast";
     public static final String CAT_SPIDER = "spider";
+    public static final String CAT_ENDERMAN = "enderman";
 
     @Config(CAT_ZOMBIE) @Comment({"Should zombies apply slowness to players when they attack and hit?"}) public static boolean zombieHitSlowness = true;
     @Config(CAT_ZOMBIE) @Comment({"Should multiple hits from zombie(s) stack the slowness effect?"}) public static boolean stackZombieHitSlowness = true;
@@ -58,6 +59,8 @@ public class SHMConfigMob extends ConfigSyncable {
     @Config(CAT_SPIDER) @Comment({"How fast should spiders move?","Vanilla value is 0.699999988079071"}) @Range(min = 0f,max = 100f) public static float spiderHellaFast = 3f;
     @Config(CAT_SPIDER) @Comment({"What chance should spiders have to spawn undergound instead of a zombie?"}) @Range(min = 0,max = 100) public static int spiderUndergroundSpawnChance = 30;
     @Config(CAT_SPIDER) @Comment({"Should spiders place webs on death (with some exceptions)?"}) public static boolean spiderPlaceWebsOnDeath = true;
+
+    @Config(CAT_ENDERMAN) @Comment({"What chance should endermen have to teleport the player if they are aggro at the player when they teleport?"}) @Range(min = 0,max = 100) public static int endermanTeleportPlayerChance = 75;
 
     private static ConfigSyncable INSTANCE;
     public static ConfigSyncable instance() {
