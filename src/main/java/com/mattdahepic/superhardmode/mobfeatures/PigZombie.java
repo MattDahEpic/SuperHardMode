@@ -1,6 +1,7 @@
 package com.mattdahepic.superhardmode.mobfeatures;
 
 import com.mattdahepic.mdecore.helpers.RandomHelper;
+import com.mattdahepic.superhardmode.asm.events.WeatherEvent;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
 
 import net.minecraft.entity.item.EntityItem;

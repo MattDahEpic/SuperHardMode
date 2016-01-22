@@ -17,8 +17,6 @@ import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.util.Random;
-
 @Mod(modid = SuperHardMode.MODID,name = SuperHardMode.NAME,version = SuperHardMode.VERSION,dependencies = SuperHardMode.DEPENDENCIES,acceptedMinecraftVersions = "1.8.9")
 public class SuperHardMode {
     @Mod.Instance(SuperHardMode.MODID)
@@ -27,13 +25,12 @@ public class SuperHardMode {
     public static final String MODID = "superhardmode";
     public static final String NAME = "Super Hard Mode";
     public static final String VERSION = "@VERSION@";
-    public static final String DEPENDENCIES = "required-after:mdecore@[1.8.8-1.6.5,);required-after:Forge@[11.15.0.1688,);"; //TODO: wait for forge with my events
+    public static final String DEPENDENCIES = "required-after:mdecore@[1.8.9-1.0,);required-after:Forge@[11.15.0.1688,);"; //TODO: wait for forge with my events
     public static final String UPDATE_URL = "https://raw.githubusercontent.com/MattDahEpic/Version/master/"+ MinecraftForge.MC_VERSION+"/"+MODID+".txt";
     public static final String CLIENT_PROXY = "com.mattdahepic.superhardmode.helper.ClientProxy";
     public static final String COMMON_PROXY = "com.mattdahepic.superhardmode.helper.CommonProxy";
 
     public static final Logger logger = LogManager.getLogger(MODID);
-    public static final Random RNGesus = new Random();
 
     public static final String CONFIGNAME_MAIN = MODID;
     public static final String CONFIGNAME_WORLD = MODID+"-world";

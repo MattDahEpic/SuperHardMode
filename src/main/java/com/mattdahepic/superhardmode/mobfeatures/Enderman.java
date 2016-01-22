@@ -1,6 +1,7 @@
 package com.mattdahepic.superhardmode.mobfeatures;
 
 import com.mattdahepic.mdecore.helpers.RandomHelper;
+import com.mattdahepic.mdecore.helpers.TeleportHelper;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
 
 import net.minecraft.entity.monster.EntityEnderman;
@@ -19,7 +20,7 @@ public class Enderman {
                 boolean hasTPed = false;
                 while (!hasTPed) {
                     BlockPos tpPos = new BlockPos(e.targetX + RandomHelper.RAND.nextInt(8), e.targetY + RandomHelper.RAND.nextInt(8), e.targetZ + RandomHelper.RAND.nextInt(8));
-                    if () { //TODO: safe spawn?
+                    if (TeleportHelper.isSafeLandingPosition(e.entity.worldObj,tpPos)) {
                         player.setPositionAndUpdate(tpPos.getX(),tpPos.getY(),tpPos.getZ());
                         player.addChatMessage(new ChatComponentText(EnumChatFormatting.LIGHT_PURPLE+"Vwoop!"));
                         hasTPed = true;

@@ -1,6 +1,6 @@
 #Super Hard Mode
 **Work in Progress! - Features are being added quite fequently, so check back often.**  
-Super Hard Mode is a mod that adds a ton of difficulty tweaks.
+Super Hard Mode is a mod that adds a ton of difficulty tweaks and just generally makes life harder.
 
 ##Features - World
 * Setting out fire by hand sets the player on fire

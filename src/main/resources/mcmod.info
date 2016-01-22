@@ -2,7 +2,7 @@
 {
   "modid": "superhardmode",
   "name": "Super Hard Mode",
-  "description": "It just gets harder and harder.",
+  "description": "The all-in-one resource to make your life a living hell.",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

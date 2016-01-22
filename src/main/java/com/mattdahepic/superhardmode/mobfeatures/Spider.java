@@ -2,6 +2,7 @@ package com.mattdahepic.superhardmode.mobfeatures;
 
 import com.mattdahepic.mdecore.helpers.RandomHelper;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
+import com.mattdahepic.superhardmode.mobfeatures.thread.TaskCleanupWebs;
 
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockCactus;
@@ -16,6 +17,9 @@ import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
 import net.minecraftforge.event.entity.living.LivingSpawnEvent;
 import net.minecraftforge.fml.common.eventhandler.Event;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class Spider {
     public static void handleSpeedIncrease (LivingSpawnEvent e) {
@@ -48,8 +52,15 @@ public class Spider {
         }
     }
     private static void webPlaceLogic (LivingDeathEvent e) {
-        //TODO randomPoses
         World world = e.entity.worldObj;
+
+        int offset1 = RandomHelper.RAND.nextInt(8);
+        int offset2 = RandomHelper.RAND.nextInt(8);
+        List<BlockPos> randomPoses = new ArrayList<BlockPos>();
+        randomPoses.add(e.entity.getPosition().add(offset1,0,offset2));
+        randomPoses.add(e.entity.getPosition().add(-offset2,0,offset1/2));
+        randomPoses.add(e.entity.getPosition().add(-offset1/2,0,-offset2));
+        randomPoses.add(e.entity.getPosition().add(offset1,0,-offset2/2));
 
         nextBlock:
         for (BlockPos pos : randomPoses) {
@@ -65,8 +76,8 @@ public class Spider {
                 }
             }
             world.setBlockState(pos, BlockWeb.getStateById(0));
-            if (pos.getY() >= 63) { //above sea level //FIXME: world may have different sea level
-                //TODO clean up webs on surface after 30 seconds
+            if (pos.getY() >= world.getSeaLevel()) { //above sea level
+                new TaskCleanupWebs(pos);
             }
         }
     }

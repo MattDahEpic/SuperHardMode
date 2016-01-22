@@ -1,14 +1,18 @@
 package com.mattdahepic.superhardmode.event;
 
 import com.mattdahepic.superhardmode.mobfeatures.*;
+import com.mattdahepic.superhardmode.worldfeatures.Fire;
+import com.mattdahepic.superhardmode.worldfeatures.Misc;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityJoinWorldEvent;
 import net.minecraftforge.event.entity.living.*;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
-public class LivingEventHandler {
-    private static final LivingEventHandler instance = new LivingEventHandler();
+public class EntityEventHandler {
+    private static final EntityEventHandler instance = new EntityEventHandler();
     public static void init () {
         MinecraftForge.EVENT_BUS.register(instance);
     }
@@ -59,5 +63,14 @@ public class LivingEventHandler {
     @SubscribeEvent
     public void enderTeleportEvent (EnderTeleportEvent e) {
         Enderman.handlePlayerTeleport(e);
+    }
+    @SubscribeEvent
+    public void playerRespawnEvent (PlayerEvent.PlayerRespawnEvent e) {
+        Player.handleReducedHealthHungerRespawning(e);
+    }
+    @SubscribeEvent
+    public void playerInteractEvent (PlayerInteractEvent e) {
+        Fire.handlePlayerSetOnFire(e);
+        Misc.cactusBreakDamagePlayer(e);
     }
 }
