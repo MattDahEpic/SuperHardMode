@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 
 public class FallingBlockHelper {
     public static void turnBlockToFallingSand (World world, BlockPos pos) {
-        EntityFallingBlock block = new EntityFallingBlock(world,pos.getX(),pos.getY(),pos.getZ(),world.getBlockState(pos));
+        EntityFallingBlock block = new EntityFallingBlock(world,pos.getX()+0.5D,pos.getY(),pos.getZ()+0.5D,world.getBlockState(pos));
         world.setBlockToAir(pos);
         world.spawnEntityInWorld(block);
     }

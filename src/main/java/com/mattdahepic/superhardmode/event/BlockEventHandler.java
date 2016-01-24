@@ -13,12 +13,13 @@ public class BlockEventHandler {
     }
     @SubscribeEvent
     public void breakEvent (BlockEvent.BreakEvent e) {
-        Softening.handleSoftening(e);
-        Fire.handleNetherrackBreakFire(e);
+        Misc.netherrackBreakFire(e);
+        Collapse.handleCollapse(e);
     }
     @SubscribeEvent
     public void placeEvent (BlockEvent.PlaceEvent e) {
         Torch.handleTorchPlacement(e);
         LimitedBuilding.handleAntiNerdPole(e);
+        Collapse.handleCollapse(e);
     }
 }

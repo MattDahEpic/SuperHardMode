@@ -1,7 +1,6 @@
 package com.mattdahepic.superhardmode.mobfeatures;
 
 import com.mattdahepic.mdecore.helpers.RandomHelper;
-import com.mattdahepic.superhardmode.SuperHardMode;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
 import com.mattdahepic.superhardmode.helper.TagHelper;
@@ -38,7 +37,7 @@ public class Zombie {
                 int respawns = TagHelper.getFlagRespawns(e.entity)+1;
                 if (!((EntityZombie) e.entity).isVillager() && !e.entity.isBurning() && RandomHelper.randomChance(SHMConfigMob.zombieRespawnChance/respawns)) {
                     TagHelper.flagRespawns(e.entity,respawns);
-                    new TaskRespawnZombies((EntityZombie)e.entity,e.entity.getPosition(),SuperHardMode.RNGesus.nextInt(8)*20);
+                    new TaskRespawnZombies((EntityZombie)e.entity,e.entity.getPosition(),RandomHelper.RAND.nextInt(8)*20);
                 }
             }
         }

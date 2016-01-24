@@ -6,9 +6,11 @@ import com.mattdahepic.mdecore.helpers.RandomHelper;
 import com.mattdahepic.superhardmode.SuperHardMode;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
+import com.mattdahepic.superhardmode.config.SHMConfigWorld;
 
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
@@ -17,6 +19,7 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.event.entity.living.LivingDropsEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 
 import java.util.ArrayList;
@@ -113,6 +116,13 @@ public class Player {
                     break;
                 default:
                     break;
+            }
+        }
+    }
+    public static void handlePlayerSetOnFire (PlayerInteractEvent e) {
+        if (SHMConfigWorld.setPlayersOnFireWhenBreakingFire && !SHMConfigMain.shouldPlayerBypass(e.entityPlayer) && e.action == PlayerInteractEvent.Action.LEFT_CLICK_BLOCK) {
+            if (e.world.getBlockState(e.pos.offset(e.face)).getBlock() == Blocks.fire) {
+                e.entityPlayer.setFire(100);
             }
         }
     }

@@ -1,10 +1,12 @@
 package com.mattdahepic.superhardmode;
 
+import com.mattdahepic.mdecore.debug.MDEDebugEvent;
 import com.mattdahepic.mdecore.update.UpdateChecker;
 import com.mattdahepic.superhardmode.config.SHMConfigMain;
 import com.mattdahepic.superhardmode.config.SHMConfigMob;
 import com.mattdahepic.superhardmode.config.SHMConfigWorld;
 import com.mattdahepic.superhardmode.helper.CommonProxy;
+import com.mattdahepic.superhardmode.helper.FallingBlockHelper;
 
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
@@ -51,10 +53,14 @@ public class SuperHardMode {
     }
     @Mod.EventHandler
     public void init (FMLInitializationEvent e) {
-        UpdateChecker.checkRemote(MODID,UPDATE_URL);
+        UpdateChecker.checkRemote(MODID, UPDATE_URL);
     }
     @SubscribeEvent
     public void onJoin (PlayerEvent.PlayerLoggedInEvent e) {
-        UpdateChecker.printMessageToPlayer(MODID,e.player);
+        UpdateChecker.printMessageToPlayer(MODID, e.player);
+    }
+    @SubscribeEvent
+    public void debug (MDEDebugEvent.BlockRightClick e) {
+        FallingBlockHelper.turnBlockToFallingSand(e.world,e.pos);
     }
 }
