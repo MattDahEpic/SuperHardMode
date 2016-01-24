@@ -21,10 +21,10 @@ public class Collapse {
         for (EnumFacing side : EnumFacing.values()) {
             if (!isBlockSupported(world,pos)) {
                 if (cascade) {
-                    FallingBlockHelper.turnBlockToFallingSand(world, pos);
+                    FallingBlockHelper.turnBlockToFallingSand(world, pos); //FIXME: this doesnt work?
                     handleCollapse(world, pos, false);
                 } else {
-                    FallingBlockHelper.turnBlockToFallingSand(world, pos);
+                    FallingBlockHelper.turnBlockToFallingSand(world, pos); //FIXME: this doesnt work?
                 }
             }
         }

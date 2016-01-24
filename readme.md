@@ -44,7 +44,13 @@ Super Hard Mode is a mod that adds a ton of difficulty tweaks and just generally
     * Spiders occasionally place down webs when they die
 
 ##Features - Farming
-* ???
+* Bonemeal doesn't work on mushrooms
+* Netherwarts **always** drop one nether wart and cannot be placed back down
+TODO* When a plant grows to full size it may be replaced by a dead bush
+TODO* Plants will not grow into their large-sized variants in desert-type biomes
+TODO* Sheep regrow only white wool and spawn white
+* Iron golems don't drop iron
+TODO* Crafting of melon and pumpkin seeds is not allowed
 
 ##Planned Features
 Available (if any) at my [Trello board](https://trello.com/b/Mtvgrxlf/mattdahepic-minecraft-mods).  

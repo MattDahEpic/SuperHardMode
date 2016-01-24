@@ -38,8 +38,6 @@ public class SHMConfigMain extends ConfigSyncable {
     }
     @Override
     public void init() {
-        addSection(CAT_BYPASS);
-        addSection(CAT_SOUNDS);
         processor = new ConfigProcessor(getClass(), this.config, this.configFileName);
         processor.process(true);
     }
@@ -55,6 +53,6 @@ public class SHMConfigMain extends ConfigSyncable {
     /** HELPERS */
 
     public static boolean shouldPlayerBypass (EntityPlayer p) {
-        return !EnvironmentHelper.isDeobf && ((bypassCreative && p.capabilities.isCreativeMode) || (bypassOps && ArrayUtils.contains(MinecraftServer.getServer().getConfigurationManager().getOppedPlayerNames(),p.getName())));
+        return p == null || (!EnvironmentHelper.isDeobf && ((bypassCreative && p.capabilities.isCreativeMode) || (bypassOps && ArrayUtils.contains(MinecraftServer.getServer().getConfigurationManager().getOppedPlayerNames(),p.getName()))));
     }
 }

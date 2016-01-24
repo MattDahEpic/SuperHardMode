@@ -1,5 +1,6 @@
 package com.mattdahepic.superhardmode.event;
 
+import com.mattdahepic.superhardmode.farmingfeatures.AntiFarming;
 import com.mattdahepic.superhardmode.worldfeatures.*;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -21,5 +22,10 @@ public class BlockEventHandler {
         Torch.handleTorchPlacement(e);
         LimitedBuilding.handleAntiNerdPole(e);
         Collapse.handleCollapse(e);
+        AntiFarming.netherwartFarming(e);
+    }
+    @SubscribeEvent
+    public void blockDropsEvent (BlockEvent.HarvestDropsEvent e) {
+        AntiFarming.netherwartFarming(e);
     }
 }

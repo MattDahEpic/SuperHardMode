@@ -61,6 +61,6 @@ public class SuperHardMode {
     }
     @SubscribeEvent
     public void debug (MDEDebugEvent.BlockRightClick e) {
-        FallingBlockHelper.turnBlockToFallingSand(e.world,e.pos);
+        FallingBlockHelper.turnBlockToFallingSand(e.world,e.pos); //TODO: remove this
     }
 }

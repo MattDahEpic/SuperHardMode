@@ -52,8 +52,6 @@ public class SHMConfigWorld extends ConfigSyncable {
     }
     @Override
     public void init() {
-        addSection(CAT_TORCHES);
-        addSection(CAT_FIRE);
         processor = new ConfigProcessor(getClass(), this.config, this.configFileName);
         processor.process(true);
     }

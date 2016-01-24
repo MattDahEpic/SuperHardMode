@@ -77,7 +77,6 @@ public class SHMConfigMob extends ConfigSyncable {
     }
     @Override
     public void init() {
-        addSection(CAT_ZOMBIE);
         processor = new ConfigProcessor(getClass(), this.config, this.configFileName);
         processor.process(true);
     }

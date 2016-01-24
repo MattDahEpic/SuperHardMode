@@ -1,5 +1,6 @@
 package com.mattdahepic.superhardmode.event;
 
+import com.mattdahepic.superhardmode.farmingfeatures.AntiFarming;
 import com.mattdahepic.superhardmode.mobfeatures.*;
 import com.mattdahepic.superhardmode.worldfeatures.Misc;
 
@@ -33,6 +34,7 @@ public class EntityEventHandler {
         Blaze.handleLootTweaks(e);
         PigZombie.handleDropNetherWart(e);
         Ghast.hellaLoot(e);
+        AntiFarming.noIronFromGolems(e);
     }
     @SubscribeEvent
     public void livingSpawnEvent (LivingSpawnEvent e) {
@@ -71,5 +73,6 @@ public class EntityEventHandler {
     public void playerInteractEvent (PlayerInteractEvent e) {
         Player.handlePlayerSetOnFire(e);
         Misc.cactusBreakDamagePlayer(e);
+        AntiFarming.bonemealMushroom(e);
     }
 }
